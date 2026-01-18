@@ -93,3 +93,66 @@ x==========x]
 [2026-01-18 14:27:56,023 - INFO - main - >>>>>> Stage Prepare Base Model Stage completed <<<<<<
 
 x==========x]
+[2026-01-18 14:44:25,030 - INFO - common - yaml file: config\config.yaml loaded successfully]
+[2026-01-18 14:44:25,037 - INFO - common - yaml file: params.yaml loaded successfully]
+[2026-01-18 14:45:40,407 - INFO - common - yaml file: config\config.yaml loaded successfully]
+[2026-01-18 14:45:40,410 - INFO - common - yaml file: params.yaml loaded successfully]
+[2026-01-18 14:53:48,266 - INFO - main - >>>>>> Stage Data Ingestion Stage started <<<<<<]
+[2026-01-18 14:53:48,266 - INFO - stage_01_data_ingestion - >>>>>> Stage Data Ingestion Stage started <<<<<<]
+[2026-01-18 14:53:48,268 - INFO - common - yaml file: config\config.yaml loaded successfully]
+[2026-01-18 14:53:48,270 - INFO - common - yaml file: params.yaml loaded successfully]
+[2026-01-18 14:53:50,173 - INFO - data_ingestion - File : artifacts\data_ingestion\data.zip downloaded with following info: 
+Connection: close
+Content-Length: 11616915
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "adf745abc03891fe493c3be264ec012691fe3fa21d861f35a27edbe6d86a76b1"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: E2A0:3173DC:29EF95:6AC2A3:696CA093
+Accept-Ranges: bytes
+Date: Sun, 18 Jan 2026 09:23:53 GMT
+Via: 1.1 varnish
+X-Served-By: cache-ccu830042-CCU
+X-Cache: HIT
+X-Cache-Hits: 0
+X-Timer: S1768728233.102508,VS0,VE247
+Vary: Authorization,Accept-Encoding
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 5cc5706e4ada140c32c1a3035320cc7b6e1791e3
+Expires: Sun, 18 Jan 2026 09:28:53 GMT
+Source-Age: 0
+
+]
+[2026-01-18 14:53:50,585 - INFO - stage_01_data_ingestion - >>>>>> Stage Data Ingestion Stage completed <<<<<<
+
+x==========x]
+[2026-01-18 14:53:50,585 - INFO - main - >>>>>> Stage Data Ingestion Stage completed <<<<<<
+
+x==========x]
+[2026-01-18 14:53:50,586 - INFO - main - >>>>>> Stage Prepare Base Model Stage started <<<<<<]
+[2026-01-18 14:53:50,586 - INFO - stage_02_prepare_base_model - >>>>>> Stage Prepare Base Model Stage started <<<<<<]
+[2026-01-18 14:53:50,587 - INFO - common - yaml file: config\config.yaml loaded successfully]
+[2026-01-18 14:53:50,589 - INFO - common - yaml file: params.yaml loaded successfully]
+[2026-01-18 14:53:51,298 - WARNING - saving_api - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-01-18 14:53:51,472 - WARNING - saving_api - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-01-18 14:53:51,629 - INFO - stage_02_prepare_base_model - >>>>>> Stage Prepare Base Model Stage completed <<<<<<
+
+x==========x]
+[2026-01-18 14:53:51,630 - INFO - main - >>>>>> Stage Prepare Base Model Stage completed <<<<<<
+
+x==========x]
+[2026-01-18 14:53:51,630 - INFO - main - >>>>>> Stage Prepare Callbacks Stage started <<<<<<]
+[2026-01-18 14:53:51,630 - INFO - stage_03_prepare_callbacks - >>>>>> Stage Prepare Callbacks Stage started <<<<<<]
+[2026-01-18 14:53:51,632 - INFO - common - yaml file: config\config.yaml loaded successfully]
+[2026-01-18 14:53:51,633 - INFO - common - yaml file: params.yaml loaded successfully]
+[2026-01-18 14:53:51,636 - INFO - stage_03_prepare_callbacks - >>>>>> Stage Prepare Callbacks Stage completed <<<<<<
+
+x==========x]
+[2026-01-18 14:53:51,637 - INFO - main - >>>>>> Stage Prepare Callbacks Stage completed <<<<<<
+
+x==========x]
