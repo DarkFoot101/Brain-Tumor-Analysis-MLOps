@@ -4,6 +4,7 @@ from classifier.entity.config_entity import DataIngestionConfig
 from classifier.entity.config_entity import PrepareBaseModelConfig
 from classifier.entity.config_entity import PrepareCallbacksConfig
 from classifier.entity.config_entity import TrainingConfig
+from classifier.entity.config_entity import EvaluationConfig
 from pathlib import Path
 import os
 
@@ -91,3 +92,13 @@ class ConfigurationManager:
             params_is_augmentation=params.AUGMENTATION,
         )
         return training_config
+
+    def get_validation_config(self) -> EvaluationConfig:
+        eval_config = EvaluationConfig(
+            path_of_model=Path("artifacts/training/trained_model.h5"),
+            training_data=Path("artifacts/data_ingestion/unzip/Chicken-fecal-images"),
+            all_params=self.params,
+            params_image_size=self.params.IMAGE_SIZE,
+            params_batch_size=self.params.BATCH_SIZE
+        )
+        return eval_config

@@ -63,6 +63,7 @@ def save_json(self, path_to_json: Path, data: dict) -> None:
     with open(path_to_json, 'w') as json_file:
         json.dump(data, json_file, indent=4)
         logger.info(f"json file: {path_to_json} saved successfully")
+    return None
 
 # to load a json file
 @ensure_annotations

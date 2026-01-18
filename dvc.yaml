@@ -1,0 +1,61 @@
+stage:
+  data_ingestion:
+    cmd: python src/classifier/pipeline/stage_01_data_ingestion.py
+    deps:
+      - src/classifier/pipeline/stage_01_data_ingestion.py
+      - config/config.yaml
+    outs:
+      - artifacts/data_ingestion/unzip/Chicken-fecal-images
+
+  prepare_base_model:
+    cmd: python src/classifier/pipeline/stage_02_prepare_base_model.py
+    deps:
+      - src/classifier/pipeline/stage_02_prepare_base_model.py
+      - config/config.yaml
+    params:
+      - IMAGE_SIZE
+      - INCLUDE_TOP
+      - CLASSES
+      - WEIGHTS
+      - LEARNING_RATE
+    outs:
+      - artifacts/prepare_base_model
+
+  prepare_callbacks:
+    cmd: python src/classifier/pipeline/stage_03_prepare_callbacks.py
+    deps:
+      - src/classifier/pipeline/stage_03_prepare_callbacks.py
+      - config/config.yaml
+    outs:
+      - artifacts/prepare_callbacks/tensorboard_root_log_dir
+      - artifacts/prepare_callbacks/checkpoint_dir
+
+  training:
+    cmd: python src/classifier/pipeline/stage_03_training.py
+    deps:
+      - src/classifier/pipeline/stage_03_training.py
+      - src/classifier/components/prepare_callbacks.py
+      - config/config.yaml
+      - artifacts/data_ingestion/unzip/Chicken-fecal-images
+      - artifacts/prepare_base_model
+    params:
+      - IMAGE_SIZE
+      - EPOCHS
+      - BATCH_SIZE
+      - AUGMENTATION
+    outs:
+      - artifacts/training/trained_model.h5
+
+  model_evaluation:
+    cmd: python src/classifier/pipeline/stage_04_model_evaluation.py
+    deps:
+      - src/classifier/pipeline/stage_04_model_evaluation.py
+      - artifacts/training/trained_model.h5
+      - config/config.yaml
+    params:
+      - IMAGE_SIZE
+      - BATCH_SIZE
+    metrics:
+    - scores.json:
+        cache: false
+
