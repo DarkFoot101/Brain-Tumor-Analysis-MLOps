@@ -1,98 +1,66 @@
-name: workflow
+name: Deploy to Cloud Run from Source
 
 on:
   push:
     branches:
       - main
     paths-ignore:
-      - 'README.md'
+      - "README.md"
+  workflow_dispatch:
 
-permissions:
-  id-token: write
-  contents: read
+env:
+  PROJECT_ID: mlops-project-484815 # Harcoded to ensure it works immediately
+  # SERVICE_NAME: disease-classification-app # You can hardcode or use a secret
+  SERVICE_NAME: disease-app
+  REGION: us-central1 # Update if your region is different
+  REPO_NAME: mlops-project
 
 jobs:
-  integration:
-    name: Continuous Integration
+  deploy:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
 
-      - name: Lint code
-        run: echo "Linting repository"
+    permissions:
+      contents: "read"
+      id-token: "write"
 
-      - name: Run unit tests
-        run: echo "Running unit tests"
-
-  build-and-push-ecr-image:
-    name: Continuous Delivery
-    needs: integration
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Install Utilities
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y jq unzip
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
-
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
-
-      - name: Build, tag, and push image to Amazon ECR
-        id: build-image
-        env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY_NAME }}
-          IMAGE_TAG: latest
-        run: |
-          # Build a docker container and
-          # push it to ECR so that it can
-          # be deployed to ECS.
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-          
-          
-  Continuous-Deployment:
-    needs: build-and-push-ecr-image
-    runs-on: self-hosted
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+      # Authenticate to Google Cloud
+      # Ideally use Workload Identity Federation, but Service Account Key is easier for now as requested.
+      - name: Google Auth
+        id: auth
+        uses: "google-github-actions/auth@v2"
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          credentials_json: "${{ secrets.GCP_SA_KEY }}"
 
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
-      
-      
-      - name: Pull latest images
+      # Setup gcloud CLI
+      - name: Set up Cloud SDK
+        uses: "google-github-actions/setup-gcloud@v2"
+
+      # Configure Docker to use gcloud as a credential helper directly
+      - name: Initialize gcloud CLI and Docker auth
         run: |
-         docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
-         
-      # - name: Stop and remove container if running
-      #   run: |
-      #    docker ps -q --filter "name=cnncls" | grep -q . && docker stop cnncls && docker rm -fv cnncls
-       
-      - name: Run Docker Image to serve users
+          gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev
+
+      # Build and Push Container
+      - name: Build and Push Container
         run: |
-         docker run -d -p 8080:8080 --name=cnncls -e 'AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}' -e 'AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}' -e 'AWS_REGION=${{ secrets.AWS_REGION }}'  ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
-      - name: Clean previous images and containers
-        run: |
-         docker system prune -f
+          IMAGE_URI=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
+          docker build -t $IMAGE_URI .
+          docker push $IMAGE_URI
+          echo "IMAGE_URI=$IMAGE_URI" >> $GITHUB_ENV
+
+      # Deploy to Cloud Run
+      - name: Deploy to Cloud Run
+        id: deploy
+        uses: "google-github-actions/deploy-cloudrun@v2"
+        with:
+          service: ${{ env.SERVICE_NAME }}
+          region: ${{ env.REGION }}
+          image: ${{ env.IMAGE_URI }}
+          flags: "--allow-unauthenticated --port=8080 --memory 2Gi --timeout 300"
+
+      - name: Show Output
+        run: echo ${{ steps.deploy.outputs.url }}
