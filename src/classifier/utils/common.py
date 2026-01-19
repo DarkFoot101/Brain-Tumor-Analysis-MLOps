@@ -172,35 +172,16 @@ def load_joblib(self, path_to_joblib: Path) -> Any:
     return data
 
 # to encode an image
-@ensure_annotations
-def encode_image(self, path_to_image: Path) -> str:
-    """
-    Encodes an image to a base64 string.
+def decodeImage(imgstring, fileName):
+    imgdata = base64.b64decode(imgstring)
+    with open(fileName, 'wb') as f:
+        f.write(imgdata)
+        f.close()
 
-    Args:
-        path_to_image (Path): The path to the image.
-
-    Returns:
-        str: The base64 string of the image.
-    """
-    with open(path_to_image, 'rb') as image_file:
-        encoded_image = base64.b64encode(image_file.read()).decode('utf-8')
-        logger.info(f"image: {path_to_image} encoded successfully")
-        return encoded_image
-
-# to decode an image
-@ensure_annotations
-def decode_image(self, encoded_image: str, path_to_image: Path) -> None:
-    """
-    Decodes a base64 string to an image.
-
-    Args:
-        encoded_image (str): The base64 string of the image.
-        path_to_image (Path): The path to save the image.
-    """
-    with open(path_to_image, 'wb') as image_file:
-        image_file.write(base64.b64decode(encoded_image))
-        logger.info(f"image: {path_to_image} decoded successfully")
+# to decode the image.
+def encodeImageIntoBase64(croppedImagePath):
+    with open(croppedImagePath, "rb") as f:
+        return base64.b64encode(f.read())
 
 @ensure_annotations
 def get_size(path: Path) -> str:

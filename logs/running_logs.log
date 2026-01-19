@@ -410,3 +410,197 @@ x==========x]
 [2026-01-18 21:41:36,457 - INFO - main - >>>>>> Stage Training Stage completed <<<<<<
 
 x==========x]
+[2026-01-19 20:02:15,429 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-19 20:02:15,478 - INFO - _internal - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.66:8080]
+[2026-01-19 20:02:15,478 - INFO - _internal - [33mPress CTRL+C to quit[0m]
+[2026-01-19 20:02:19,705 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:02:19] "GET / HTTP/1.1" 200 -]
+[2026-01-19 20:02:44,908 - ERROR - app - Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Akhil\Python\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\Users\Akhil\OneDrive\Desktop\animal-disease-classification-with-llm\app.py", line 32, in predictRoute
+    decode_image(image, clApp.filename)
+  File "C:\Users\Akhil\Python\lib\site-packages\ensure\main.py", line 849, in __call__
+    return_val = self.f(*args, **kwargs)
+TypeError: decode_image() missing 1 required positional argument: 'path_to_image'
+[2026-01-19 20:02:44,922 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:02:44] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-01-19 20:04:06,153 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-19 20:04:06,174 - INFO - _internal - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.66:8080]
+[2026-01-19 20:04:06,174 - INFO - _internal - [33mPress CTRL+C to quit[0m]
+[2026-01-19 20:04:08,528 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:04:08] "GET / HTTP/1.1" 200 -]
+[2026-01-19 20:04:18,654 - ERROR - app - Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Akhil\Python\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\Users\Akhil\OneDrive\Desktop\animal-disease-classification-with-llm\app.py", line 32, in predictRoute
+    decode_image(encoded_image=image, path_to_image=clApp.filename)
+  File "C:\Users\Akhil\Python\lib\site-packages\ensure\main.py", line 845, in __call__
+    raise EnsureError(msg.format(
+ensure.main.EnsureError: Argument path_to_image of type <class 'str'> to <function decode_image at 0x000001DBE8819EA0> does not match annotation type <class 'pathlib.Path'>
+[2026-01-19 20:04:18,654 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:04:18] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-01-19 20:04:43,874 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:04:43] "GET / HTTP/1.1" 200 -]
+[2026-01-19 20:04:49,742 - ERROR - app - Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Akhil\Python\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\Users\Akhil\OneDrive\Desktop\animal-disease-classification-with-llm\app.py", line 32, in predictRoute
+    decode_image(encoded_image=image, path_to_image=Path(clApp.filename))
+  File "C:\Users\Akhil\Python\lib\site-packages\ensure\main.py", line 845, in __call__
+    raise EnsureError(msg.format(
+ensure.main.EnsureError: Argument path_to_image of type <class 'str'> to <function decode_image at 0x000001DBE8819EA0> does not match annotation type <class 'pathlib.Path'>
+[2026-01-19 20:04:49,749 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:04:49] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-01-19 20:05:47,083 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-19 20:05:47,155 - INFO - _internal - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.66:8080]
+[2026-01-19 20:05:47,155 - INFO - _internal - [33mPress CTRL+C to quit[0m]
+[2026-01-19 20:05:47,207 - INFO - _internal -  * Restarting with watchdog (windowsapi)]
+[2026-01-19 20:05:54,123 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-19 20:05:54,166 - WARNING - _internal -  * Debugger is active!]
+[2026-01-19 20:05:54,181 - INFO - _internal -  * Debugger PIN: 853-650-682]
+[2026-01-19 20:05:54,306 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:05:54] "GET / HTTP/1.1" 200 -]
+[2026-01-19 20:06:00,912 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:06:00] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-01-19 20:06:52,590 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-19 20:06:52,614 - INFO - _internal - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.66:8080]
+[2026-01-19 20:06:52,614 - INFO - _internal - [33mPress CTRL+C to quit[0m]
+[2026-01-19 20:06:56,336 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:06:56] "GET / HTTP/1.1" 200 -]
+[2026-01-19 20:07:02,339 - INFO - common - image: inputImage.jpg decoded successfully]
+[2026-01-19 20:07:02,341 - ERROR - app - Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Akhil\Python\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\Users\Akhil\OneDrive\Desktop\animal-disease-classification-with-llm\app.py", line 32, in predictRoute
+    decode_image(encoded_image=image, path_to_image=Path(clApp.filename))
+  File "C:\Users\Akhil\Python\lib\site-packages\ensure\main.py", line 850, in __call__
+    if not isinstance(return_val, self.return_templ):
+TypeError: isinstance() arg 2 must be a type, a tuple of types, or a union
+[2026-01-19 20:07:02,350 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:07:02] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-01-19 20:10:11,386 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-19 20:10:11,413 - INFO - _internal - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.66:8080]
+[2026-01-19 20:10:11,413 - INFO - _internal - [33mPress CTRL+C to quit[0m]
+[2026-01-19 20:10:14,190 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:10:14] "GET / HTTP/1.1" 200 -]
+[2026-01-19 20:10:21,629 - ERROR - app - Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Akhil\Python\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\Users\Akhil\OneDrive\Desktop\animal-disease-classification-with-llm\app.py", line 32, in predictRoute
+    decode_image(encoded_image=image, path_to_image=clApp.filename)
+TypeError: decodeImage() got an unexpected keyword argument 'encoded_image'
+[2026-01-19 20:10:21,635 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:10:21] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-01-19 20:11:09,495 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-19 20:11:09,516 - INFO - _internal - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.66:8080]
+[2026-01-19 20:11:09,518 - INFO - _internal - [33mPress CTRL+C to quit[0m]
+[2026-01-19 20:11:10,835 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:11:10] "GET / HTTP/1.1" 200 -]
+[2026-01-19 20:11:17,281 - ERROR - app - Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Akhil\Python\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\Users\Akhil\OneDrive\Desktop\animal-disease-classification-with-llm\app.py", line 33, in predictRoute
+    result = clApp.classifier.predict()
+TypeError: PredictionPipeline.predict() missing 1 required positional argument: 'img_path'
+[2026-01-19 20:11:17,294 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:11:17] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-01-19 20:12:20,219 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-19 20:12:20,243 - INFO - _internal - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.66:8080]
+[2026-01-19 20:12:20,243 - INFO - _internal - [33mPress CTRL+C to quit[0m]
+[2026-01-19 20:12:22,336 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:12:22] "GET / HTTP/1.1" 200 -]
+[2026-01-19 20:12:29,815 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-19 20:12:29,831 - ERROR - app - Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Akhil\Python\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Akhil\Python\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\Users\Akhil\OneDrive\Desktop\animal-disease-classification-with-llm\app.py", line 33, in predictRoute
+    result = clApp.classifier.predict(img_path=clApp.filename)
+  File "C:\Users\Akhil\OneDrive\Desktop\animal-disease-classification-with-llm\src\classifier\pipeline\predict.py", line 13, in predict
+    imagename = self.filename
+AttributeError: 'PredictionPipeline' object has no attribute 'filename'
+[2026-01-19 20:12:29,835 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:12:29] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-01-19 20:13:52,077 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-19 20:13:52,098 - INFO - _internal - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.66:8080]
+[2026-01-19 20:13:52,099 - INFO - _internal - [33mPress CTRL+C to quit[0m]
+[2026-01-19 20:13:53,770 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:13:53] "GET / HTTP/1.1" 200 -]
+[2026-01-19 20:13:59,571 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-19 20:14:01,804 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:14:01] "POST /predict HTTP/1.1" 200 -]
+[2026-01-19 20:14:16,555 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-19 20:14:17,537 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:14:17] "POST /predict HTTP/1.1" 200 -]
+[2026-01-19 20:14:29,322 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-19 20:14:30,386 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:14:30] "POST /predict HTTP/1.1" 200 -]
+[2026-01-19 20:14:33,751 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-19 20:14:34,657 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:14:34] "POST /predict HTTP/1.1" 200 -]
