@@ -9,10 +9,9 @@ on:
   workflow_dispatch:
 
 env:
-  PROJECT_ID: mlops-project-484815 # Harcoded to ensure it works immediately
-  # SERVICE_NAME: disease-classification-app # You can hardcode or use a secret
+  PROJECT_ID: mlops-project-484815
   SERVICE_NAME: disease-app
-  REGION: us-central1 # Update if your region is different
+  REGION: us-central1
   REPO_NAME: mlops-project
 
 jobs:
@@ -27,39 +26,37 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Authenticate to Google Cloud
-      # Ideally use Workload Identity Federation, but Service Account Key is easier for now as requested.
       - name: Google Auth
         id: auth
         uses: "google-github-actions/auth@v2"
         with:
           credentials_json: "${{ secrets.GCP_SA_KEY }}"
 
-      # Setup gcloud CLI
       - name: Set up Cloud SDK
         uses: "google-github-actions/setup-gcloud@v2"
 
-      # Configure Docker to use gcloud as a credential helper directly
       - name: Initialize gcloud CLI and Docker auth
         run: |
           gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev
 
-      # Build and Push Container
+      # ✅ Build + Push Docker image and expose IMAGE_URI as step output
       - name: Build and Push Container
+        id: build
         run: |
           IMAGE_URI=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
+          echo "Building image: $IMAGE_URI"
           docker build -t $IMAGE_URI .
           docker push $IMAGE_URI
-          echo "IMAGE_URI=$IMAGE_URI" >> $GITHUB_ENV
+          echo "image_uri=$IMAGE_URI" >> $GITHUB_OUTPUT
 
-      # Deploy to Cloud Run
+      # ✅ Deploy using the step output
       - name: Deploy to Cloud Run
         id: deploy
         uses: "google-github-actions/deploy-cloudrun@v2"
         with:
           service: ${{ env.SERVICE_NAME }}
           region: ${{ env.REGION }}
-          image: ${{ env.IMAGE_URI }}
+          image: ${{ steps.build.outputs.image_uri }}
           flags: "--allow-unauthenticated --port=8080 --memory 2Gi --timeout 300"
 
       - name: Show Output
