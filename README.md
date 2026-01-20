@@ -67,22 +67,18 @@ graph TD
     G -->|Docker Build| H[Artifact Registry]
     H -->|Deploy| I[Google Cloud Run]
 
-    %% Styling - Modern Professional Palette
-    %% Data: Clean Blues
-    classDef data fill:#dbeafe,stroke:#1e40af,stroke-width:2px,color:#1e3a8a
-    %% Process: Teals/Cyans
-    classDef process fill:#ccfbf1,stroke:#0f766e,stroke-width:2px,color:#134e4a
-    %% Model/Evaluation: Warm Amber/Oranges
-    classDef model fill:#fef3c7,stroke:#b45309,stroke-width:2px,color:#78350f
-    %% Deploy: Indigos/Purples
-    classDef deploy fill:#e0e7ff,stroke:#3730a3,stroke-width:2px,color:#312e81
-    %% GCP: Standard Google Blue
-    classDef gcp fill:#4285F4,stroke:#0d47a1,stroke-width:2px,color:#fff
+    %% Styling - Uniform Blue Palette based on the provided image
+    %% All boxes are now blue with white text and white borders.
+    classDef data fill:#4285F4,stroke:#fff,stroke-width:2px,color:#fff
+    classDef process fill:#4285F4,stroke:#fff,stroke-width:2px,color:#fff
+    classDef model fill:#4285F4,stroke:#fff,stroke-width:2px,color:#fff
+    classDef deploy fill:#4285F4,stroke:#fff,stroke-width:2px,color:#fff
+    classDef gcp fill:#4285F4,stroke:#fff,stroke-width:2px,color:#fff
 
     class A,B data
     class C,D process
     class E,F model
-    class G deplo
+    class G deploy
     class H,I gcp
 ```
 
