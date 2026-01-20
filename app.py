@@ -10,14 +10,35 @@ CORS(app)
 
 class ClientApp:
     def __init__(self):
-        # We assume the model is in artifacts/training/trained_model.h5
-        model_path = os.path.join("artifacts", "training", "trained_model.h5")
-        self.classifier = PredictionPipeline(model_path=model_path)
+        # Dictionary of potential paths to check
+        self.model = None
+        paths_to_check = [
+            os.path.join("artifacts", "training", "trained_model.h5"),
+            "trained_model.h5",
+            os.path.join(os.getcwd(), "trained_model.h5")
+        ]
+        
+        model_path = None
+        for path in paths_to_check:
+            if os.path.exists(path):
+                model_path = path
+                print(f"Model found at: {model_path}")
+                break
+        
+        if model_path:
+            self.classifier = PredictionPipeline(model_path=model_path)
+        else:
+            print(f"CRITICAL: Model file not found. Checked: {paths_to_check}")
+            # We don't raise here to allow the app to start, but predictions will fail
+            self.classifier = None
 
+clApp = None
 try:
     clApp = ClientApp()
 except Exception as e:
     print(f"CRITICAL ERROR LOADING MODEL: {e}")
+    # clApp stays None or partially initialized
+
 
 @app.route("/", methods=["GET"])
 def home():
@@ -55,6 +76,9 @@ def predictRoute():
 
         else:
             return jsonify({"error": "Unsupported request"}), 400
+
+        if clApp is None or clApp.classifier is None:
+            return jsonify({"error": "Model not loaded. Please contact administrator."}), 500
 
         result = clApp.classifier.predict(img_path=filepath)
         
