@@ -604,3 +604,56 @@ AttributeError: 'PredictionPipeline' object has no attribute 'filename'
 [2026-01-19 20:14:30,386 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:14:30] "POST /predict HTTP/1.1" 200 -]
 [2026-01-19 20:14:33,751 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
 [2026-01-19 20:14:34,657 - INFO - _internal - 127.0.0.1 - - [19/Jan/2026 20:14:34] "POST /predict HTTP/1.1" 200 -]
+[2026-01-20 10:30:20,177 - INFO - common - yaml file: config\config.yaml loaded successfully]
+[2026-01-20 10:30:20,197 - INFO - common - yaml file: params.yaml loaded successfully]
+[2026-01-20 10:31:50,871 - INFO - common - yaml file: config\config.yaml loaded successfully]
+[2026-01-20 10:31:50,875 - INFO - common - yaml file: params.yaml loaded successfully]
+[2026-01-20 10:56:16,420 - INFO - common - yaml file: config\config.yaml loaded successfully]
+[2026-01-20 10:56:16,422 - INFO - common - yaml file: params.yaml loaded successfully]
+[2026-01-20 10:56:17,014 - INFO - 831689671 - File : artifacts\data_ingestion\data.zip downloaded with following info: 
+Content-Type: text/html; charset=utf-8
+X-Robots-Tag: noindex, nofollow, nosnippet
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: Mon, 01 Jan 1990 00:00:00 GMT
+Date: Tue, 20 Jan 2026 05:26:18 GMT
+P3P: CP="This is not a P3P policy! See g.co/p3phelp for more info."
+Content-Security-Policy: require-trusted-types-for 'script';report-uri https://csp.withgoogle.com/csp/docs-tt
+Reporting-Endpoints: default="/file/d/17IkxLdZglyS3OsnTqi_QS8TC0V9oN904/web-reports?bl=apps-fileview.texmex_20260108.00_p0&app=15&clss=1&context=eJwV03tYzIkeBvAx8_u9LqWmElNIpqRWaTiLVtcxmgl73BkdR661IslBstZtc7ctu-ZYlyhKZEqq4-yGZBmU-ym7jlxPputMZWzJZR-d1x-f53nf7_fvt0d5r4xuekm-nV7STn72ekmWXC9Zp9BLinz0ku_99JLOz_SSrkP0kiEBekmqSi8JStNLoihm0SxJ4iefWaTJNK3mtXQ2jZvwh3QKXdzULjVR8eZ26QU6trRDmkvHQt5Kc8kQ-laaTj3i3kqd6eWut1ILJd98J91Ag53fSwOpJvO9tInudn6U_k6e_TulvtRtbadUTuasLjIr9b4mlXnQy6kymYXWbZbJUunoNpksh47XymSn6Xp3QXaXJK2jhW6066cQ4UdKCgoVUmhVlFr4hgImqIURVJqqFu6Q33618AWFfzNG0NFsaISFtCxJI6ymG8ka4R6VrNUIFVRUoBHO09ZzGiGN7g2JFB6SfEmkoKCdKyKFHyjqUqQwmeT1vJNhhFZIp5hFWiGRjCt1wgUq69AJN-jm0iihklJdxgm7ybfreEFFu6dliPto--IMcQ-l_5whZpPnjExRRQfbMsVjNMn5uDiXskYdF4vp1MTj4lk6fzVLvElupizRj5yeMNOM1ixxDo2KyRZ1ZBefLbpQZUK2WE0bzNniNlqy8IT4NU0vPCH-nUom5oi_kqw0R7Sj0i0nxWsUMOCUOIK-iz4lGuii9ZR4m6obT4s11OpvFDsoeqJRnE_rFxnFreS8wSi607hcoziFOnbmiZ3UmJYnvqOKuHzxERk-5ovZJJ98RvSkygVnxGpKTjwjbqDf85vEZ7QwwyKupFflFvEttYVZxT_ppytWMYOcoptFN6o61Cw-JudLdoiqtsNfKfq9HWLIeNgeZ-lOuj0qKcNsj5NkcuyJ2zT6l54YQ7stPbGXpoQ7YCYFX3OAhsL-4ggt3YlzRCX9dtQRT-n0CTmKaEeuHGm057QcBnL9IMcgulDkhKt0QeWMq2QKdkYFrVW6YDMtG-WC1SRb4AI7iq3uhdVU86QXmj5xcsVrGjDRFYPp_lpX_JdyvnbFGXLc7oo-dOtYb1TRmie9sZESE_ogmdwlCiip0FOBEnKKU8CNyvMVuE_mCgWsVJ7phvv0ZZYbplPxLndcoJGv3BFGhR3uKCH_JX3xOa3Y1hfJNGtvX8yj4m_74RcyHOiHdMr36I9SelPYHx9okrcHptO6ZA-kkj7PAyGtHhhL6-MG4FvyOTcAQ-kDPCHr6onwIE_oyGWJJ6QlnuhB37sMxD56njUQ9dSvdSC8qVugEnK6MlqJSlq9XImtlEln6dEqJf5Ho7YpEU4vdyhhoX2ZShymKR-ViKZnw7xQR_JwLyjo9AwvFJAp3gu3aX6OF-Ko6oEXHlNgjDfqDnmjhfqd84Y3SQoG4dJMH1wnzSwfTKA1ssHouXUwHsAXT2iMgy_GUz8nXwwkfy9fDKP3Q3wh9feFLMsXdnSmzhf_JpXcD0G0yckPO6jQxQ8lZOzlh2LqmxcMLyorDIaJaouC0URDuodARY6TQtCHHm0IwXOquRGCenrzNAQfaLskFHvowP5QZFLD4VA0U5UiDI-pfn0YrFS1k53KfwzDfarxDkcTdRkWDlBEQASi6OXyCDTQnCMRWEAF9C_amBuBLbTSFIF1dOddBCqp-yA1nGiYRo0vaOQRNcLot_tqPKXoJjXmk6FzDA6Rzk2DSZ9EajCd1ms12EpPEzSopbUpGmymsscamKiXWQM3SrVouHENLs4eCxPt-cdYGAitY-FAAd9EYgSd66LFebrirMVNurVJiyoKytYigopO8k_zy7WIpwU2Lb6iHX9qEZKkg5qCVukQQQ55OvSmm_k6VJLhhQ7ptHFoFLaTd24U_GnSiyjoabvPOHxHU3fV4G-0tKwGSRTUUINQinv4EsnkN96ModQ02YzXJJtqhh1dLjKjnA40mHGE4hrNWEr735lxlG6E1-I2Ba6rxee0yFiL1LJa7KA9ZKDDlEnKgDoM_mRzHQIp6UodUugyXaOv6uqQQOaf69FIs8vrMY_ExAb0_OREA1ypurQBz8lg34h02uvZiH_SpamNuEo5ZxthpMYXjbDRuTeNKKVcaxMKKXSmBS2LLbieYsFdMqZZYCiw4iBVX7GihvI_WlFEl2KbcZ2C4psRSorMZvSn6O4tiKGdIS34gRIftUBe2AoFOVS0woXq5rxCCyUsfwXXtFcwhtlwlsqm2WCirnobusyy4cs4G6bTieU2GGnpfhtW0rRCGwKe2TCcrMGvYaMVzm1Ipgdz21BNW2LbsIt8FrfBn_6T24aH9JxqyVzbhibKV7SjmI4q25FNeVRE5-ky1ZGVrle04zbNlrzBPLr3xxs8oF_VHbhB-1o6cJD8Pr5DIDnbd3ufdfEW5C9Mewuk7sLM-Ng1Sq_5SUkrA-LiE2KTWYeuik1ZFpsyd7hq-EjVMFXQUJVqbpLq_5UZ7I8&build-label=apps-fileview.texmex_20260108.00_p0&imp-sid=CP_-2OCwmZIDFfMfoAAdZCkRKg&is-cached-offline=false"
+Document-Policy: include-js-call-stacks-in-crash-reports
+Referrer-Policy: origin
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+Server: GSE
+Set-Cookie: NID=528=VLlYKQW6NQ7rGR2y1Ju8dv7aezN_L-IYsl9Gsjs7RqChhDk4zioexMMqw4t7j9_HQ8zA30_TZOAYECToB0dcbjqr9xdsjXQMX5zFzwYO1uLTV2l7kfPbjsHRnIR20VuiuDJ-WMmMU-KsprybUtzLfUELyl6DQADg7YrGbYSjBsPwNQxAU0A2jjHpfWquqi0FYIbOKgLPbsuY7x4; expires=Wed, 22-Jul-2026 05:26:18 GMT; path=/; domain=.google.com; HttpOnly
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+Accept-Ranges: none
+Vary: Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site,Accept-Encoding
+Connection: close
+Transfer-Encoding: chunked
+
+]
+[2026-01-20 11:01:50,782 - INFO - common - yaml file: config\config.yaml loaded successfully]
+[2026-01-20 11:01:50,786 - INFO - common - yaml file: params.yaml loaded successfully]
+[2026-01-20 11:06:34,044 - INFO - common - yaml file: config\config.yaml loaded successfully]
+[2026-01-20 11:06:34,057 - INFO - common - yaml file: params.yaml loaded successfully]
+[2026-01-20 11:07:07,045 - INFO - 465068388 - Downloaded from Google Drive: artifacts\data_ingestion\data.zip]
+[2026-01-20 11:11:31,861 - INFO - common - yaml file: config\config.yaml loaded successfully]
+[2026-01-20 11:11:31,864 - INFO - common - yaml file: params.yaml loaded successfully]
+[2026-01-20 11:11:32,582 - WARNING - saving_api - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-01-20 11:11:32,790 - WARNING - saving_api - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-01-20 11:14:37,134 - INFO - common - yaml file: config\config.yaml loaded successfully]
+[2026-01-20 11:14:37,137 - INFO - common - yaml file: params.yaml loaded successfully]
+[2026-01-20 11:15:19,145 - INFO - common - yaml file: config\config.yaml loaded successfully]
+[2026-01-20 11:15:19,148 - INFO - common - yaml file: params.yaml loaded successfully]
+[2026-01-20 11:19:33,219 - INFO - common - yaml file: config\config.yaml loaded successfully]
+[2026-01-20 11:19:33,221 - INFO - common - yaml file: params.yaml loaded successfully]
+[2026-01-20 11:39:20,132 - INFO - common - yaml file: config\config.yaml loaded successfully]
+[2026-01-20 11:39:20,135 - INFO - common - yaml file: params.yaml loaded successfully]
+[2026-01-20 11:39:20,766 - WARNING - saving_api - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-01-20 11:39:20,996 - WARNING - saving_api - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-01-20 11:39:41,373 - INFO - common - yaml file: config\config.yaml loaded successfully]
+[2026-01-20 11:39:41,379 - INFO - common - yaml file: params.yaml loaded successfully]
+[2026-01-20 11:39:56,504 - INFO - common - yaml file: config\config.yaml loaded successfully]
+[2026-01-20 11:39:56,508 - INFO - common - yaml file: params.yaml loaded successfully]

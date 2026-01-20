@@ -21,7 +21,7 @@ class Training:
             compile=False
         )
 
-        # ✅ compile fresh optimizer
+        # compile fresh optimizer
         self.model.compile(
             optimizer=tf.keras.optimizers.SGD(),
             loss=tf.keras.losses.CategoricalCrossentropy(),
@@ -72,7 +72,7 @@ class Training:
             **dataflow_kwargs
         )
 
-        # ✅ Optional debug prints
+        #  Optional debug prints
         print("Train samples:", self.train_generator.samples)
         print("Valid samples:", self.valid_generator.samples)
         print("Classes:", self.train_generator.class_indices)
@@ -80,7 +80,7 @@ class Training:
     @staticmethod
     def save_model(path: Path, model: tf.keras.Model):
         path = Path(path)
-        path.parent.mkdir(parents=True, exist_ok=True)  # ✅ only make parent dir
+        path.parent.mkdir(parents=True, exist_ok=True)  #  only make parent dir
         model.save(path)
 
 

@@ -1,6 +1,7 @@
 from classifier.config.configuration import ConfigurationManager
 from classifier.components.data_ingestion import DataIngestion
 from classifier import logger
+import gdown
 
 STAGE_NAME = "Data Ingestion Stage"
 

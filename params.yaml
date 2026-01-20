@@ -2,7 +2,7 @@ AUGMENTATION: True
 IMAGE_SIZE: [224, 224, 3]
 BATCH_SIZE: 16 # batch size for training
 INCLUDE_TOP: False
-EPOCHS: 5 # number of epochs for training
-CLASSES: 2 # number of classes for classification
+EPOCHS: 8 # number of epochs for training
+CLASSES: 4 # number of classes for classification
 WEIGHTS: imagenet # weights to be used for model initialization
-LEARNING_RATE: 0.01
+LEARNING_RATE: 0.001 # learning rate for the optimizer

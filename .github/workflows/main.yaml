@@ -10,7 +10,7 @@ on:
 
 env:
   PROJECT_ID: mlops-project-484815
-  SERVICE_NAME: disease-app
+  SERVICE_NAME: tumor-detection-app
   REGION: us-central1
   REPO_NAME: mlops-project
 
@@ -39,7 +39,7 @@ jobs:
         run: |
           gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev
 
-      # ✅ Build + Push Docker image and expose IMAGE_URI as step output
+      #  Build + Push Docker image and expose IMAGE_URI as step output
       - name: Build and Push Container
         id: build
         run: |
@@ -49,7 +49,7 @@ jobs:
           docker push $IMAGE_URI
           echo "image_uri=$IMAGE_URI" >> $GITHUB_OUTPUT
 
-      # ✅ Deploy using the step output
+      #  Deploy using the step output
       - name: Deploy to Cloud Run
         id: deploy
         uses: "google-github-actions/deploy-cloudrun@v2"

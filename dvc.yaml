@@ -5,7 +5,7 @@ stage:
       - src/classifier/pipeline/stage_01_data_ingestion.py
       - config/config.yaml
     outs:
-      - artifacts/data_ingestion/unzip/Chicken-fecal-images
+      - artifacts/data_ingestion/unzip/brain_tumor_dataset
 
   prepare_base_model:
     cmd: python src/classifier/pipeline/stage_02_prepare_base_model.py
@@ -36,7 +36,7 @@ stage:
       - src/classifier/pipeline/stage_03_training.py
       - src/classifier/components/prepare_callbacks.py
       - config/config.yaml
-      - artifacts/data_ingestion/unzip/Chicken-fecal-images
+      - artifacts/data_ingestion/unzip/brain_tumor_dataset
       - artifacts/prepare_base_model
     params:
       - IMAGE_SIZE
