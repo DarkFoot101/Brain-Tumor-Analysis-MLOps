@@ -1,79 +1,80 @@
 from flask import Flask, jsonify, request, render_template
 import os
+import uuid
 from flask_cors import CORS
 from src.classifier.pipeline.predict import PredictionPipeline
-from classifier.utils.common import decodeImage as decode_image
-from pathlib import Path
-
-os.putenv("LANG", "en_US.UTF-8")
-os.putenv("LC_ALL", "en_US.UTF-8")
+from src.classifier.utils.common import decodeImage as decode_image
 
 app = Flask(__name__)
 CORS(app)
 
-
 class ClientApp:
-    def __init__(self, app):
-        self.filename = "0001.jpg"
-        self.classifier = PredictionPipeline(
-            model_path=os.path.join("artifacts", "training", "trained_model.h5")
-        )
+    def __init__(self):
+        # We assume the model is in artifacts/training/trained_model.h5
+        model_path = os.path.join("artifacts", "training", "trained_model.h5")
+        self.classifier = PredictionPipeline(model_path=model_path)
 
+# Initialize the model once when app starts
+# If this fails, your terminal will show an error immediately
+try:
+    clApp = ClientApp()
+except Exception as e:
+    print(f"CRITICAL ERROR LOADING MODEL: {e}")
+    # We don't exit, so you can see the error in the terminal
 
 @app.route("/", methods=["GET"])
 def home():
     return render_template("index.html")
 
-
 @app.route("/train", methods=["GET", "POST"])
 def train():
     os.system("python main.py")
-    return "Training successful!"
-
+    return "Training successful! (Note: Changes are temporary on Cloud Run)"
 
 @app.route("/predict", methods=["POST"])
 def predictRoute():
-    """
-    Supports:
-    multipart/form-data (file upload)  -> request.files["file"]
-    application/json (base64 image)    -> request.json["image"]
-    """
-
     try:
-        #  CASE 1: New UI (multipart file upload)
+        # --- FIX FOR WINDOWS VS CLOUD ---
+        # If we are on Cloud Run (Linux), /tmp exists.
+        # If we are on Windows, we use the current folder or 'uploads'
+        if os.name == 'posix': # Linux/Mac/Cloud Run
+            base_path = "/tmp"
+        else: # Windows
+            base_path = "uploads"
+            if not os.path.exists(base_path):
+                os.makedirs(base_path)
+
+        filename = str(uuid.uuid4()) + ".jpg"
+        filepath = os.path.join(base_path, filename)
+        # -------------------------------
+
         if "file" in request.files:
             file = request.files["file"]
-
             if file.filename == "":
                 return jsonify({"error": "No file selected"}), 400
+            file.save(filepath)
 
-            # Save uploaded file
-            file.save(clApp.filename)
-
-            result = clApp.classifier.predict(img_path=clApp.filename)
-            return jsonify(result)
-
-        # CASE 2: Old UI (base64 json)
-        if request.is_json:
+        elif request.is_json:
             data = request.get_json()
             if "image" not in data:
-                return jsonify({"error": "Missing 'image' key in JSON"}), 400
+                return jsonify({"error": "Missing image data"}), 400
+            decode_image(imgstring=data["image"], fileName=filepath)
 
-            image = data["image"]
-            decode_image(imgstring=image, fileName=clApp.filename)
+        else:
+            return jsonify({"error": "Unsupported request"}), 400
 
-            result = clApp.classifier.predict(img_path=clApp.filename)
-            return jsonify(result)
+        # Perform Prediction
+        result = clApp.classifier.predict(img_path=filepath)
+        
+        # Cleanup
+        if os.path.exists(filepath):
+            os.remove(filepath)
 
-        return jsonify({"error": "Unsupported request format"}), 400
+        return jsonify(result)
 
     except Exception as e:
+        print(f"ERROR DURING PREDICTION: {e}") # Check your terminal for this!
         return jsonify({"error": str(e)}), 500
 
-
-clApp = ClientApp(app)
-
-
 if __name__ == "__main__":
-    # Run on Colab / Docker / cloud
     app.run(host="0.0.0.0", port=8080, debug=True)

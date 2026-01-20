@@ -658,3 +658,49 @@ Transfer-Encoding: chunked
 [2026-01-20 11:39:56,504 - INFO - common - yaml file: config\config.yaml loaded successfully]
 [2026-01-20 11:39:56,508 - INFO - common - yaml file: params.yaml loaded successfully]
 [2026-01-20 12:37:31,079 - WARNING - saving_api - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-01-20 20:27:09,644 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-20 20:27:09,698 - INFO - _internal - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.66:8080]
+[2026-01-20 20:27:09,698 - INFO - _internal - [33mPress CTRL+C to quit[0m]
+[2026-01-20 20:27:09,741 - INFO - _internal -  * Restarting with watchdog (windowsapi)]
+[2026-01-20 20:27:14,218 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-20 20:27:14,252 - WARNING - _internal -  * Debugger is active!]
+[2026-01-20 20:27:14,256 - INFO - _internal -  * Debugger PIN: 138-832-722]
+[2026-01-20 20:27:14,340 - INFO - _internal - 127.0.0.1 - - [20/Jan/2026 20:27:14] "GET / HTTP/1.1" 200 -]
+[2026-01-20 20:27:14,978 - INFO - _internal - 127.0.0.1 - - [20/Jan/2026 20:27:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -]
+[2026-01-20 20:28:09,674 - INFO - _internal - 127.0.0.1 - - [20/Jan/2026 20:28:09] "GET / HTTP/1.1" 200 -]
+[2026-01-20 20:29:20,338 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-20 20:29:20,363 - INFO - _internal - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.66:8080]
+[2026-01-20 20:29:20,363 - INFO - _internal - [33mPress CTRL+C to quit[0m]
+[2026-01-20 20:29:20,370 - INFO - _internal -  * Restarting with watchdog (windowsapi)]
+[2026-01-20 20:29:24,839 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-20 20:29:24,856 - WARNING - _internal -  * Debugger is active!]
+[2026-01-20 20:29:24,861 - INFO - _internal -  * Debugger PIN: 138-832-722]
+[2026-01-20 20:29:31,538 - INFO - _internal - 127.0.0.1 - - [20/Jan/2026 20:29:31] "GET / HTTP/1.1" 200 -]
+[2026-01-20 20:30:50,934 - INFO - _internal - 127.0.0.1 - - [20/Jan/2026 20:30:50] "GET / HTTP/1.1" 200 -]
+[2026-01-20 21:30:19,314 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-20 21:30:19,352 - INFO - _internal - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.66:8080]
+[2026-01-20 21:30:19,353 - INFO - _internal - [33mPress CTRL+C to quit[0m]
+[2026-01-20 21:30:22,868 - INFO - _internal - 127.0.0.1 - - [20/Jan/2026 21:30:22] "GET / HTTP/1.1" 200 -]
+[2026-01-20 21:30:32,584 - INFO - _internal - 127.0.0.1 - - [20/Jan/2026 21:30:32] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-01-20 21:30:39,025 - INFO - _internal - 127.0.0.1 - - [20/Jan/2026 21:30:39] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-01-20 21:34:04,667 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-20 21:34:04,708 - INFO - _internal - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.66:8080]
+[2026-01-20 21:34:04,708 - INFO - _internal - [33mPress CTRL+C to quit[0m]
+[2026-01-20 21:34:04,734 - INFO - _internal -  * Restarting with watchdog (windowsapi)]
+[2026-01-20 21:34:09,189 - WARNING - saving_utils - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-20 21:34:09,214 - WARNING - _internal -  * Debugger is active!]
+[2026-01-20 21:34:09,225 - INFO - _internal -  * Debugger PIN: 138-832-722]
+[2026-01-20 21:34:13,205 - INFO - _internal - 127.0.0.1 - - [20/Jan/2026 21:34:13] "GET / HTTP/1.1" 200 -]
+[2026-01-20 21:34:19,785 - INFO - _internal - 127.0.0.1 - - [20/Jan/2026 21:34:19] "POST /predict HTTP/1.1" 200 -]
