@@ -15,7 +15,7 @@ class Training:
         self.config = config
     
     def get_base_model(self):
-        # ✅ load without optimizer state
+        #  load without optimizer state
         self.model = tf.keras.models.load_model(
             self.config.updated_base_model_path,
             compile=False

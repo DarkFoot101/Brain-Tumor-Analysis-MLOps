@@ -4,7 +4,7 @@ from classifier.pipeline.stage_01_data_ingestion import DataIngestionPipeline
 from classifier.pipeline.stage_02_prepare_base_model import PrepareBaseModelPipeline
 from classifier.pipeline.stage_03_prepare_callbacks import PrepareCallbacksPipeline
 from classifier.pipeline.stage_04_training import ModelTrainingPipeline
-from classifier.pipeline.stage_04_evaluation import EvaluationPipeline
+from classifier.pipeline.stage_05_evaluation import EvaluationPipeline
 
 
 STAGE_NAME = "Data Ingestion Stage"
