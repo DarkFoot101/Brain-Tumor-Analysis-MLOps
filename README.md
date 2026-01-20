@@ -1,4 +1,4 @@
-# End-to-End Brain Tumor Classification
+# <div align="center"> End-to-End Brain Tumor Classification </div>
 
 A state-of-the-art Deep Learning project designed to classify brain tumors from MRI scans. This application leverages a robust MLOps pipeline using MLflow for experiment tracking, DVC for data version control, and TensorFlow for high-performance model training. The final model is containerized with Docker and deployed on Google Cloud Run for serverless scalability.
 
